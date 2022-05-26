@@ -1,0 +1,32 @@
+<mat-card>
+  <form (submit)="onSubmit(form)" #form="ngForm">
+    <!-- <mat-label>Post Title</mat-label> -->
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        placeholder="Enter a post title..."
+        ngModel
+        name="title"
+        required
+        #title="ngModel">
+        <mat-error *ngIf="title.invalid">Please enter a post title!</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <textarea
+        matInput
+        rows="6"
+        placeholder="What are you feeling?"
+        ngModel
+        name="content"
+        required
+        #content="ngModel"></textarea>
+        <mat-error *ngIf="content.invalid">Please enter post content!</mat-error>
+    </mat-form-field>
+    <button
+      [disabled]="form.invalid"
+      mat-raised-button
+      color="primary"
+      type="submit">SAVE POST</button>
+  </form>
+</mat-card>
